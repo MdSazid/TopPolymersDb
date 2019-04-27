@@ -1,0 +1,136 @@
+﻿@model TopPolymersDb.Models.ProformaInvoice
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProformaInvoice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SL_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SL_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PI_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PI_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PI_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PI_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerInfo.Customer_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerInfo.Customer_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PI_Value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PI_Value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LCNo.LC_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LCNo.LC_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Currency.Currency1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Currency.Currency1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unite.Unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unite.Unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ETD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ETD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ETA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ETA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentTerm.Payment_Term)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentTerm.Payment_Term)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+            <input type="button" value="Back to List" class="btn btn-default" onclick="location.href='@Url.Action("Index", "ProformaInvoices")'" />
+        </div>    
+    }
+</div>

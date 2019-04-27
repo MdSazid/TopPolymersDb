@@ -1,0 +1,156 @@
+﻿@model TopPolymersDb.Models.ProformaInvoice
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_TopPolymersLayout.cshtml";
+}
+
+<h1>Add Proforma Invoice</h1>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.SL_No, "Serial Number", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.SL_No, new { htmlAttributes = new { @class = "form-control", placeholder = "Give a serial number" } })
+                @Html.ValidationMessageFor(model => model.SL_No, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PI_No, "PI Number", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.PI_No, new { htmlAttributes = new { @class = "form-control", placeholder = "Give a Proforma Invoice number" } })
+                @Html.ValidationMessageFor(model => model.PI_No, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PI_Date, "PI Date", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.PI_Date, new { htmlAttributes = new { @class = "form-control datepicker", placeholder = "Choose Proforma Invoice Date" } })
+                @Html.ValidationMessageFor(model => model.PI_Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerId, "Customer Name", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.DropDownList("CustomerId", null, "----Select new----", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+                @Html.ActionLink("Add New Customer", "Index", "CustomerInfoes")
+            </div>
+    
+           </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PI_Value, "PI Value", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.PI_Value, new { htmlAttributes = new { @class = "form-control", placeholder = "Give a Proforma Invoice Value" } })
+                @Html.ValidationMessageFor(model => model.PI_Value, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LC_Id, "L/C Number", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.DropDownList("LC_Id", null, "----Select new----", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LC_Id, "", new { @class = "text-danger" })
+                @Html.ActionLink("Add new LC Number", "Create", "LCNoes")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "Give the price" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CurrencyId, "Currency", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.DropDownList("CurrencyId", null, "----Select new----", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CurrencyId, "", new { @class = "text-danger" })
+                @Html.ActionLink("Add new Currency", "Create", "Currencies")
+            </div>
+
+         
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", placeholder = "Give the quantity" } })
+                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnitId, "Unit Type", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.DropDownList("UnitId", null, "----Select new----", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UnitId, "", new { @class = "text-danger" })
+                @Html.ActionLink("Add new Unit", "Create", "Units")
+            </div>
+       
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ETD, "Estimated time of Departure (ETD)", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.ETD, new { htmlAttributes = new { @class = "form-control datepicker", placeholder = "Choose ETD Date" } })
+                @Html.ValidationMessageFor(model => model.ETD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ETA, "Estimated time of Arrival (ETA)", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.ETA, new { htmlAttributes = new { @class = "form-control datepicker", placeholder = "Choose ETA Date" } })
+                @Html.ValidationMessageFor(model => model.ETA, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PT_Id, "Payment Terms", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.DropDownList("PT_Id", null, "----Select new----", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PT_Id, "", new { @class = "text-danger" })
+                @Html.ActionLink("Add new Payment Terms", "Create", "PaymentTerms")
+            </div>
+          
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Remarks, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Remarks, new { htmlAttributes = new { @class = "form-control", placeholder = "Writedown the remarks" } })
+                @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="button" value="Back to List" class="btn btn-default" onclick="location.href='@Url.Action("Index", "ProformaInvoices")'" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

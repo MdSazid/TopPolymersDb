@@ -1,0 +1,88 @@
+﻿@model TopPolymersDb.Models.PaymentTerm
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br /><br /><br />
+
+@using (Html.BeginForm("Create", "PaymentTerms", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button id="btnShow" class="btn btn-default add-button" data-target="#unitmodal" data-toggle="modal"> Add Payment Term</button>
+                    <div class="modal" id="unitmodal" tabindex="-1" data-keyboard="false" data-backdrop="static">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Create Payment Term</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="form-horizontal">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Payment_Term, "Payment Term", htmlAttributes: new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.EditorFor(model => model.Payment_Term, new { htmlAttributes = new { @class = "form-control", placeholder = "Give a Payment Term" } })
+                                                @Html.ValidationMessageFor(model => model.Payment_Term, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <input type="submit" value="Create" class="btn btn-success" />
+                                    <button class="btn btn-danger" data-dismiss="modal"> Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+<br /><br /><br />
+<div class="container">
+    <table class="table table-bordered table-striped table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Payment_Term)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.PT)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payment_Term)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PT_Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PT_Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PT_Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-md-12">
+        @*@Html.ActionLink("Back to List", "Index") &nbsp;&nbsp; <b>|</b> &nbsp;&nbsp;*@
+        @Html.ActionLink("Back to Proforma Invoice", "Index", "ProformaInvoices") &nbsp;&nbsp; <b>|</b> &nbsp;&nbsp;
+        <a href="javascript:history.back()">Back to Proforma</a>
+    </div>
+</div>

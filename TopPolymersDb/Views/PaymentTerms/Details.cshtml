@@ -1,0 +1,26 @@
+﻿@model TopPolymersDb.Models.PaymentTerm
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PaymentTerm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment_Term)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment_Term)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PT_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

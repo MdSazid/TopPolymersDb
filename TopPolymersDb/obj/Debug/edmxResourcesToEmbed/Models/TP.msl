@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TopPolymersDataModelStoreContainer" CdmEntityContainer="TopPolymersDataEntities">
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="TopPolymersDataModel.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="Currency1" ColumnName="Currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerInfoes">
+      <EntityTypeMapping TypeName="TopPolymersDataModel.CustomerInfo">
+        <MappingFragment StoreEntitySet="CustomerInfo">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LCNoes">
+      <EntityTypeMapping TypeName="TopPolymersDataModel.LCNo">
+        <MappingFragment StoreEntitySet="LCNo">
+          <ScalarProperty Name="LC_Id" ColumnName="LC_Id" />
+          <ScalarProperty Name="LC_No" ColumnName="LC_No" />
+          <ScalarProperty Name="LC_Date" ColumnName="LC_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentTerms">
+      <EntityTypeMapping TypeName="TopPolymersDataModel.PaymentTerm">
+        <MappingFragment StoreEntitySet="PaymentTerms">
+          <ScalarProperty Name="PT_Id" ColumnName="PT_Id" />
+          <ScalarProperty Name="Payment_Term" ColumnName="Payment_Term" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProformaInvoices">
+      <EntityTypeMapping TypeName="TopPolymersDataModel.ProformaInvoice">
+        <MappingFragment StoreEntitySet="ProformaInvoice">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SL_No" ColumnName="SL_No" />
+          <ScalarProperty Name="PI_No" ColumnName="PI_No" />
+          <ScalarProperty Name="PI_Date" ColumnName="PI_Date" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="PI_Value" ColumnName="PI_Value" />
+          <ScalarProperty Name="LC_Id" ColumnName="LC_Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="ETD" ColumnName="ETD" />
+          <ScalarProperty Name="ETA" ColumnName="ETA" />
+          <ScalarProperty Name="PT_Id" ColumnName="PT_Id" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Unites">
+      <EntityTypeMapping TypeName="TopPolymersDataModel.Unite">
+        <MappingFragment StoreEntitySet="Unite">
+          <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TopPolymersDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="CurrencyId" />
+    </Key>
+    <Property Name="CurrencyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CustomerInfo">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Customer_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LCNo">
+    <Key>
+      <PropertyRef Name="LC_Id" />
+    </Key>
+    <Property Name="LC_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LC_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="LC_Date" Type="date" />
+  </EntityType>
+  <EntityType Name="PaymentTerms">
+    <Key>
+      <PropertyRef Name="PT_Id" />
+    </Key>
+    <Property Name="PT_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Payment_Term" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ProformaInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SL_No" Type="bigint" />
+    <Property Name="PI_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="PI_Date" Type="date" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="PI_Value" Type="money" />
+    <Property Name="LC_Id" Type="int" />
+    <Property Name="Price" Type="money" />
+    <Property Name="CurrencyId" Type="int" />
+    <Property Name="Quantity" Type="money" />
+    <Property Name="UnitId" Type="int" />
+    <Property Name="ETD" Type="date" />
+    <Property Name="ETA" Type="date" />
+    <Property Name="PT_Id" Type="int" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Unite">
+    <Key>
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Name="UnitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_ProformaInvoice_Currency">
+    <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+    <End Role="ProformaInvoice" Type="Self.ProformaInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="CurrencyId" />
+      </Principal>
+      <Dependent Role="ProformaInvoice">
+        <PropertyRef Name="CurrencyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProformaInvoice_CustomerInfo">
+    <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="0..1" />
+    <End Role="ProformaInvoice" Type="Self.ProformaInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerInfo">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="ProformaInvoice">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProformaInvoice_LCNo">
+    <End Role="LCNo" Type="Self.LCNo" Multiplicity="0..1" />
+    <End Role="ProformaInvoice" Type="Self.ProformaInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LCNo">
+        <PropertyRef Name="LC_Id" />
+      </Principal>
+      <Dependent Role="ProformaInvoice">
+        <PropertyRef Name="LC_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProformaInvoice_PaymentTerms">
+    <End Role="PaymentTerms" Type="Self.PaymentTerms" Multiplicity="0..1" />
+    <End Role="ProformaInvoice" Type="Self.ProformaInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentTerms">
+        <PropertyRef Name="PT_Id" />
+      </Principal>
+      <Dependent Role="ProformaInvoice">
+        <PropertyRef Name="PT_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProformaInvoice_Unite">
+    <End Role="Unite" Type="Self.Unite" Multiplicity="0..1" />
+    <End Role="ProformaInvoice" Type="Self.ProformaInvoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unite">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="ProformaInvoice">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TopPolymersDataModelStoreContainer">
+    <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerInfo" EntityType="Self.CustomerInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LCNo" EntityType="Self.LCNo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentTerms" EntityType="Self.PaymentTerms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProformaInvoice" EntityType="Self.ProformaInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unite" EntityType="Self.Unite" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ProformaInvoice_Currency" Association="Self.FK_ProformaInvoice_Currency">
+      <End Role="Currency" EntitySet="Currency" />
+      <End Role="ProformaInvoice" EntitySet="ProformaInvoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProformaInvoice_CustomerInfo" Association="Self.FK_ProformaInvoice_CustomerInfo">
+      <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+      <End Role="ProformaInvoice" EntitySet="ProformaInvoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProformaInvoice_LCNo" Association="Self.FK_ProformaInvoice_LCNo">
+      <End Role="LCNo" EntitySet="LCNo" />
+      <End Role="ProformaInvoice" EntitySet="ProformaInvoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProformaInvoice_PaymentTerms" Association="Self.FK_ProformaInvoice_PaymentTerms">
+      <End Role="PaymentTerms" EntitySet="PaymentTerms" />
+      <End Role="ProformaInvoice" EntitySet="ProformaInvoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProformaInvoice_Unite" Association="Self.FK_ProformaInvoice_Unite">
+      <End Role="Unite" EntitySet="Unite" />
+      <End Role="ProformaInvoice" EntitySet="ProformaInvoice" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

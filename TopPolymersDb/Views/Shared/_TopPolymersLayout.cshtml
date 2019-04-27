@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Top Polymers</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/StyleSheet.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Images/favicon01-16x16.png">
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script>
+        $(function () {
+            $('.datepicker').datepicker({ autoclose: true });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="navbar-header">
+                        <a class="navbar-brand logo pulse" href="/"><img src="~/Images/logo.gif" /></a>
+                        <a class="custom-logo" href="/"><img src="~/Images/ISO_logo01.png" /></a>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="home-heading">
+                        <p>
+                            Your trusted partner in marketing and sourcing of Polymer, PVC Chemicals, Ceramic Raw
+                            Materials, Glass Raw Materials, Film, Oleo Chemicals, Solvent, Synthetic Rubber, Pulp & Paper
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-expanded="false" aria-controls="navbar">
+                        <span>Menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="navbar-collapse collapse manu" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active">@Html.ActionLink("Proforma Invoice", "Index", "ProformaInvoices")</li>
+                            @*<li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Page 1-1</a></li>
+                                        <li><a href="#">Page 1-2</a></li>
+                                        <li><a href="#">Page 1-3</a></li>
+                                    </ul>
+                                </li>*@
+                            <li>@Html.ActionLink("Customer Information", "Index", "CustomerInfoes")</li>
+                            <li>@Html.ActionLink("Currency", "Index", "Currencies")</li>
+                            <li>@Html.ActionLink("Unit", "Index", "Units")</li>
+                            <li>@Html.ActionLink("L/C NO", "Index", "LCNoes")</li>
+                            <li>@Html.ActionLink("Payment Term", "Index", "PaymentTerms")</li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="w3-container w3-border w3-round-xlarge">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+        </div>
+    </div>
+
+    <footer>
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>Top Polymers</h4>
+                        <ul>
+                            <li>
+                                Apt # B5, Green Primavera<br />
+                                House # 35, Road # 17, Block # E,<br />
+                                Banani, Dhaka 1213, Bangladesh.
+                            </li>
+                            <li>Tel: +88-02-8836220/88-02-8833137.</li>
+                            <li>Fax: +88028834623</li>
+                            <li>Cell: (+88) 01829389880,<br /> (+88) 01855312385, (+88) 01735245275.<br /><br /></li>
+                            <li>
+                                <a href="mailto:toppolymers@gmail.com">toppolymers@gmail.com</a><br />
+                                <a href="mailto:safiqurrahman@toppolymersbd.com">safiqurrahman@toppolymersbd.com</a><br />
+                                <a href="mailto:jashiakhan@toppolymersbd.com">jashiakhan@toppolymersbd.com</a><br />
+                                <a href="mailto:shamimrahman@toppolymersbd.com">shamimrahman@toppolymersbd.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <h4>Useful Links</h4>
+                        <ul>
+                            @*<li><a href="http://localhost:2386/">Home</a></li>*@
+                            <li>@Html.ActionLink("Proforma Invoices", "Create", "ProformaInvoices")</li>
+                            <li>@Html.ActionLink("Customer Information", "Create", "CustomerInfoes")</li>
+                            <li>@Html.ActionLink("LC Number", "Create", "LCNoes")</li>
+                            <li>@Html.ActionLink("Currency", "Create", "Currencies")</li>
+                            <li>@Html.ActionLink("Unite", "Create", "Units")</li>
+                            <li>@Html.ActionLink("Payment Terms", "Create", "PaymentTerms")</li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-md-5 ">
+
+                        <h4>About Us</h4>
+                        <p>Top Polymers is sister concern of Top Rank was formed in the year 1987. Since then, the company has been engaged in trading of Polymer, PVC Chemicals, Ceramic Raw Materials, Glass Raw Materials, Film, Oleo Chemicals, Pulp & Paper, Solvent, Synthetic Rubber, etc. </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-11">
+                        <p>Copyright © @DateTime.Now.Year <a href="http://www.toppolymersbd.com" target="_blank">Top Polymers</a> All rights reserved.</p>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="/"><img src="~/Images/logo.gif" alt="Top Polymer Logo" width="60" height="60" /></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

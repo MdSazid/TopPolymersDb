@@ -1,0 +1,144 @@
+﻿@model IEnumerable<TopPolymersDb.Models.ProformaInvoice>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+<br /><br /><br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    @Html.ActionLink("Add new Proforma Invoice", "Create", null, htmlAttributes: new { @class = "btn btn-default add-button" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<br /><br /><br />
+<div style="overflow-x: auto">
+
+    <table class="table table-bordered table-striped table-hover" id="proformatable" style="width: auto">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SL_No)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PI_No)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PI_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerInfo.Customer_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PI_Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LCNo.LC_No)
+            </th>
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Currency.Currency1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unite.Unit)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ETD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ETA)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentTerm.Payment_Term)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SL_No)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PI_No)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PI_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerInfo.Customer_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PI_Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LCNo.LC_No)
+                </td>
+
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Currency.Currency1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Unite.Unit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ETD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ETA)
+                </td>
+
+
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PaymentTerm.Payment_Term)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
